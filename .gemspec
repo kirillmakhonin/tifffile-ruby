@@ -14,9 +14,15 @@ Gem::Specification.new do |gem|
   gem.email    = 'kroks.rus@gmail.com'
   gem.homepage = 'https://github.com/kirillmakhonin/tifffile-ruby'
 
+  gem.platform = Gem::Platform.local
 
-  gem.files    = `git ls-files`.split($\)
+  gem.files    = `git ls-files`.split($\) + Dir.glob("lib/**/*")
 
+  gem.required_rubygems_version = ">= 1.3.6"
+
+  gem.add_development_dependency "rspec", '~> 0'
+
+  gem.require_path = 'lib'
   
 end
 
