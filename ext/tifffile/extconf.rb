@@ -1,7 +1,12 @@
 require "mkmf"
 
-#LIBDIR      = Config::CONFIG['libdir']
-#INCLUDEDIR  = Config::CONFIG['includedir']
+# Add C++ support
+
+have_library( 'stdc++' );
+$CFLAGS << " -Wall"
+
+
+
 
 HEADER_DIRS = [
     # First search /opt/local for macports

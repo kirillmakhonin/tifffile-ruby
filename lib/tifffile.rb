@@ -1,15 +1,16 @@
 require 'tifffile/version'
 require "tifffile/tifffile"
 
-class TiffFile
+module TiffFile
 
   include TiffFileVersion
 
-  def self.tiff2file(destination, values, photometric=nil, planarconfig=nil, description=nil, software=nil, byteorder=nil, bigtiff=nil, compress=nil, extratags=nil)
-    data2tiff(destination.to_s, values, photometric, planarconfig, description, software, byteorder, bigtiff, compress, extratags)
+  # @sample_size size in bytes. Supported [1, 2, 4, 8]
+  def self.tiff2file(destination, values, sample_size=16, sample_unsigned=false, description=nil, software=nil)
+    self.to_tiff(destination.to_s, values, sample_size.to_i, sample_unsigned == true, description.to_s, software.to_s)
   end
 
-  def self.tiff2binary(values, photometric=nil, planarconfig=nil, description=nil, software=nil, byteorder=nil, bigtiff=nil, compress=nil, extratags=nil)
+  def self.tiff2binary(values, sample_size=16, description=nil, software=nil)
 
   end
 
